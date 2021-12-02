@@ -7,7 +7,7 @@ dirs = {
 # horizontal, aim, depth
 pos = (0,0,0)
 
-with open('./input') as fh:
+with open('./input.txt') as fh:
     for instruction in fh:
         d = instruction[0]
         s = int(instruction.split()[1])
