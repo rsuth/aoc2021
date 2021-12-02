@@ -1,10 +1,8 @@
-with open('./input') as f:
+with open('./input', 'r') as f:
     numbers = []
-    raw_lines = f.readlines()
-    for l in raw_lines:
+    for l in f:
         numbers.append(int(l.strip()))
     
-
 def part1(nums):
     count = 0
     for i in range(1, len(nums)):
