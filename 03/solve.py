@@ -28,18 +28,12 @@ def find_epsilon(gamma):
 
 print(f"part 1: {int(find_gamma(numbers),2) * int(find_epsilon(find_gamma(numbers)), 2)}")
 
-def o2(numbers, col):
+def o2(numbers, col, inv=False):
   if len(numbers) == 1:
     return numbers
   else:
-    filtered = list(filter(lambda num: num[col] == get_most_common(col, numbers), numbers))
-    return o2(filtered, col+1)
+    filtered = list(filter(lambda num: num[col] == get_most_common(col, numbers, inv=inv), numbers))
+    return o2(filtered, col+1, inv=inv)
 
-def co2(numbers, col):
-  if len(numbers) == 1:
-    return numbers
-  else:
-    filtered = list(filter(lambda num: num[col] == get_most_common(col, numbers, True), numbers))
-    return co2(filtered, col+1)
 
-print(f"part 2: {int(o2(numbers, 0)[0], 2) * int(co2(numbers, 0)[0], 2)}")
+print(f"part 2: {int(o2(numbers, 0)[0], 2) * int(o2(numbers, 0, inv=True)[0], 2)}")
