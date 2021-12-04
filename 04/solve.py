@@ -27,9 +27,7 @@ def part1(boards, draws):
   for i in range(len(draws)):
     for b in boards:
       if check_board(draws[:i+1], b):
-        print(f'winner found: {b}\ndraws: {draws[:i+1]}')
-        print(f'solution: {calculate_solution(b, draws[:i+1])}')
-        return
+        return calculate_solution(b, draws[:i+1])
 
 def part2(boards, draws):
   winners = []
@@ -39,9 +37,7 @@ def part2(boards, draws):
         if b not in winners:
           winners.append(b)
           last_draw = i
-  print(f"last winner: {winners[-1]}")
-  print(f"solution: {calculate_solution(winners[-1], draws[:last_draw+1])}")
+  return calculate_solution(winners[-1], draws[:last_draw+1])
 
-
-part1(boards, draws)
-part2(boards, draws)
+print(part1(boards, draws))
+print(part2(boards, draws))
